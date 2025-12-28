@@ -1,0 +1,303 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 550px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero__bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(75%);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.hero__title {
+  color: var(--primary-color);
+  font-size: 48px;
+  font-family: var(--font-armenian);
+  line-height: 1.2;
+  font-weight: 400;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in 0.3s forwards;
+}
+
+.hero__subtitle {
+  color: var(--primary-color);
+  font-size: 32px;
+  font-family: var(--font-armenian);
+  line-height: 1.2;
+  font-weight: 400;
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in 0.6s forwards;
+}
+
+/* Envelope Container */
+.hero__envelope-container {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  height: 480px;
+  margin: 0 auto 40px;
+  perspective: 1500px;
+}
+
+/* Envelope Image - Real envelope photo (WebP optimized) */
+.hero__envelope-body {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 511px;
+  height: 390px;
+  background-image: url('/envelope-body.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: visible;
+  z-index: 2;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in 0.9s forwards;
+  filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.12));
+}
+
+
+
+/* Card inside envelope - Hidden when using envelope image */
+.hero__card {
+  display: none;
+}
+
+.hero__card-image {
+  display: none;
+}
+
+/* Envelope Flap - Top triangular part (separate image) */
+.hero__envelope-flap {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 423px;
+  height: 280px;
+  background-image: url('/envelope-flap.webp');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 3;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in 1s forwards;
+  pointer-events: none;
+}
+
+/* Wax seal stamp on envelope */
+.hero__stamp-button {
+  position: absolute;
+  top: 240px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 90px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 4;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in 1.5s forwards;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero__stamp-button:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.hero__stamp-button:active {
+  transform: translate(-50%, -50%) scale(0.98);
+}
+
+.hero__stamp {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.25));
+}
+
+.hero__open-text {
+  font-size: 15px;
+  font-family: var(--font-main);
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  margin-top: 24px;
+  cursor: pointer;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in 1.8s forwards;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hero__open-text:hover {
+  transform: translateY(-2px);
+  letter-spacing: 4px;
+  color: #8B7355;
+}
+
+.hero__arrow {
+  width: 40px;
+  height: 20px;
+  margin: 32px auto 0;
+  display: block;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in 2.1s forwards, bounce 2.6s ease-in-out 2.1s infinite;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* Bounce Animation for Arrow */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+}
+
+/* Smooth fade out transition when opening */
+.hero.hero--opening {
+  animation: heroFadeOut 0.8s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroFadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .hero__title {
+    font-size: 36px;
+  }
+
+  .hero__subtitle {
+    font-size: 26px;
+    margin-bottom: 40px;
+  }
+
+  .hero__envelope-container {
+    max-width: 450px;
+    height: 400px;
+  }
+
+  .hero__envelope-body {
+    top: 50px;
+    max-width: 408px;
+    height: 312px;
+  }
+  
+  .hero__envelope-flap {
+    max-width: 338px;
+    height: 224px;
+  }
+
+  .hero__stamp-button {
+    top: 200px;
+    width: 80px;
+    height: 80px;
+  }
+  
+  .hero__stamp-button:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  
+  .hero__stamp-button:active {
+    transform: translate(-50%, -50%) scale(0.98);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero__title {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .hero__subtitle {
+    font-size: 22px;
+    line-height: 1.3;
+    margin-bottom: 30px;
+  }
+
+  .hero__envelope-container {
+    max-width: 340px;
+    height: 320px;
+  }
+
+  .hero__envelope-body {
+    top: 40px;
+    max-width: 320px;
+    height: 244px;
+  }
+  
+  .hero__envelope-flap {
+    max-width: 266px;
+    height: 176px;
+  }
+
+  .hero__stamp-button {
+    top: 160px;
+    width: 70px;
+    height: 70px;
+  }
+  
+  .hero__stamp-button:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+  
+  .hero__stamp-button:active {
+    transform: translate(-50%, -50%) scale(0.98);
+  }
+}
+
