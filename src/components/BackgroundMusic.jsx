@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import '../styles/BackgroundMusic.css'
 
-const BackgroundMusic = () => {
+const BackgroundMusic = ({ shouldAutoPlay = false }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const audioRef = useRef(null)
 
@@ -10,6 +10,19 @@ const BackgroundMusic = () => {
       audioRef.current.volume = 0.4
     }
   }, [])
+
+  // Auto-play when triggered from Hero
+  useEffect(() => {
+    if (shouldAutoPlay && audioRef.current && !isPlaying) {
+      audioRef.current.play()
+        .then(() => {
+          setIsPlaying(true)
+        })
+        .catch(error => {
+          console.log('Auto-play prevented by browser:', error)
+        })
+    }
+  }, [shouldAutoPlay])
 
   const toggleMusic = () => {
     if (audioRef.current) {

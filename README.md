@@ -70,7 +70,6 @@ Edit the following files to customize the invitation:
 - **Venue Information**: `src/components/EventDetails.jsx`
 - **Names**: `src/components/Hero.jsx` and `src/components/Invitation.jsx`
 - **RSVP Deadline**: `src/components/RSVPForm.jsx`
-- **Contact Information**: `src/components/ContactInfo.jsx`
 
 ### Changing Images
 

@@ -1,14 +1,76 @@
-.app {
-  min-height: 100vh;
-  position: relative;
+html, body {
+  margin: 0;
 }
 
 .main-content {
+  position: relative;
+  min-height: 100vh;
+  height: 400px;
   opacity: 0;
 }
 
 .main-content--fade-in {
   animation: contentFadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Background slideshow container */
+.main-content__background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Individual background images - FIXED to viewport, covers full screen always */
+.main-content__bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+/* Dark overlay for better text readability */
+.main-content__bg-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.main-content__bg-image.active {
+  opacity: 1;
+}
+
+/* Content wrapper - SCROLLABLE over background */
+.main-content__wrapper {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  height:900px;
+  padding: 40px 20px;
+  overflow-y: scroll;
+}
+
+.main-content__wrapper > section {
+  margin-bottom: 60px;
+}
+
+.main-content__wrapper > section:last-child {
+  margin-bottom: 0;
 }
 
 @keyframes contentFadeIn {
@@ -25,6 +87,14 @@
 @media screen and (max-width: 768px) {
   .container {
     padding: 0 15px;
+  }
+  
+  .main-content__wrapper {
+    padding: 30px 15px;
+  }
+  
+  .main-content__wrapper > section {
+    margin-bottom: 40px;
   }
 }
 

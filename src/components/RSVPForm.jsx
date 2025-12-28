@@ -76,8 +76,8 @@ const RSVPForm = () => {
       <div className="container">
         <h2 className="rsvp-form__title">
           Շնորհակալ կլինենք,<br />
-          եթե հաստատեք Ձեր ներկայությունը<br />
-          <span className="rsvp-form__subtitle">մինչև 01.09.2025</span>
+          եթե հաստատեք Ձեր ժամանումը<br />
+          <span className="rsvp-form__subtitle">մինչև 10.02.2026</span>
         </h2>
 
         <form onSubmit={handleSubmit} className="rsvp-form__form">

@@ -1,6 +1,11 @@
 .event-details {
   padding: 60px 0;
-  background-color: var(--white);
+  background-color: transparent;
+}
+
+.event-details .container {
+  padding: 50px 40px;
+  max-width: 900px;
 }
 
 .event-details__date {
@@ -13,8 +18,10 @@
   font-family: var(--font-armenian);
   line-height: 1.55;
   font-weight: 400;
-  color: var(--primary-color);
+  color: white;
   animation: blurInUp 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5),
+               0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 .event-details__event {
@@ -28,8 +35,10 @@
   font-family: var(--font-armenian);
   line-height: 1.55;
   font-weight: 400;
-  color: var(--primary-color);
+  color: white;
   margin-bottom: 20px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5),
+               0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 .event-details__info {
@@ -41,53 +50,60 @@
   font-family: var(--font-main);
   font-weight: 200;
   text-transform: uppercase;
-  color: var(--primary-color);
+  color: white;
   margin-bottom: 15px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .event-details__venue {
   font-size: 30px;
   font-family: var(--font-armenian);
   font-weight: 400;
-  color: var(--primary-color);
+  color: white;
   margin-bottom: 15px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5),
+               0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 .event-details__address {
   font-size: 14px;
   font-family: var(--font-main);
   font-weight: 200;
-  color: var(--primary-color);
+  color: white;
   line-height: 1.6;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .event-details__directions-btn {
   display: inline-block;
-  padding: 10px 30px;
-  background-color: rgba(244, 244, 244, 0.3);
-  backdrop-filter: blur(2px);
-  border: 1px solid rgba(65, 70, 83, 0.4);
+  padding: 12px 35px;
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 35px;
-  color: var(--primary-color);
+  color: white;
   font-size: 13px;
   font-family: var(--font-main);
   font-weight: 300;
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.3s ease;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  letter-spacing: 1px;
 }
 
 .event-details__directions-btn:hover {
-  background-color: rgba(244, 244, 244, 0.5);
-  border-color: rgba(65, 70, 83, 0.6);
+  background-color: rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.6);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .event-details__divider {
   width: 200px;
   height: 1px;
-  background-color: var(--primary-color);
-  opacity: 0.2;
+  background-color: white;
+  opacity: 0.3;
   margin: 60px auto;
 }
 

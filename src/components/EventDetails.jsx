@@ -6,7 +6,7 @@ const EventDetails = () => {
       <div className="container">
         {/* Date */}
         <div className="event-details__date">
-          <h2 className="event-details__date-text">12 Հուլիսի 2026</h2>
+          <h2 className="event-details__date-text">17 Փետրվարի 2026</h2>
         </div>
 
         {/* Ceremony */}
@@ -14,14 +14,14 @@ const EventDetails = () => {
           <h3 className="event-details__time">14։30</h3>
           <div className="event-details__info">
             <h4 className="event-details__name">Պսակադրություն</h4>
-            <p className="event-details__venue">Սաղմոսավանք</p>
+            <p className="event-details__venue">Սբ. Գայանե</p>
             <p className="event-details__address">
-              Արագածոտնի մարզ,<br />
-              գ․ Սաղմոսավան
+              Արմավիրի մարզ,<br />
+              ք․ Էջմիածին
             </p>
           </div>
           <a 
-            href="https://maps.app.goo.gl/Kfd5L7bS6TjRJoVe6" 
+            href="https://yandex.com/maps/-/CLH~7VMC" 
             target="_blank" 
             rel="noopener noreferrer"
             className="event-details__directions-btn"
@@ -37,13 +37,13 @@ const EventDetails = () => {
           <h3 className="event-details__time">17։30</h3>
           <div className="event-details__info">
             <h4 className="event-details__name">Հարսանյաց հանդիսություն</h4>
-            <p className="event-details__venue">Florence ռեստորան</p>
+            <p className="event-details__venue">Morena ռեստորան</p>
             <p className="event-details__address">
-              ք․ Երևան․ Բարբյուսի 64/2
+              ք․ Մասիս, Մխիթար Հերացի 7/8
             </p>
           </div>
           <a 
-            href="https://maps.app.goo.gl/2z3WGE6uuS24c6LaA" 
+            href="https://yandex.com/maps/-/CLH~76iI" 
             target="_blank" 
             rel="noopener noreferrer"
             className="event-details__directions-btn"

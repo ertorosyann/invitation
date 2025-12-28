@@ -2,32 +2,21 @@
   position: relative;
   min-height: 330px;
   padding: 60px 0;
-  background: linear-gradient(0.5turn, rgba(251, 251, 250, 1) 0%, rgba(252, 252, 233, 0) 100%);
+  background: transparent;
   border-radius: 300px 300px 0 0;
-  overflow: hidden;
-}
-
-.invitation__background {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 608px;
-  height: 1071px;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.invitation__bg-image {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  filter: saturate(75%);
+  /* overflow: visible; */
+  
 }
 
 .invitation__content {
   position: relative;
   z-index: 2;
+  /* background: rgba(255, 255, 255, 0.9); */
+  padding: 50px 30px;
+  border-radius: 20px;
+  /* backdrop-filter: blur(10px); */
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
   padding: 40px 20px;
 }
@@ -76,18 +65,91 @@
   font-family: var(--font-armenian);
   line-height: 1.55;
   font-weight: 400;
-  color: var(--primary-color);
+  color: white;
   margin-bottom: 30px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4),
+               0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.invitation__names {
+  font-size: 60px;
+  font-family: var(--font-armenian);
+  line-height: 1.3;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 40px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5),
+               0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Countdown Timer */
+.invitation__countdown {
+  margin: 40px 0;
+  margin-top: 180px;
+  text-align: center;
+}
+
+.invitation__countdown-title {
+  font-size: 16px;
+  font-family: var(--font-main);
+  color: white;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  letter-spacing: 1px;
+}
+
+.invitation__countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.invitation__countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 80px;
+}
+
+.invitation__countdown-number {
+  font-size: 64px;
+  font-family: var(--font-main);
+  font-weight: 300;
+  color: white;
+  line-height: 1;
+  margin-bottom: 8px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5),
+               0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.invitation__countdown-label {
+  font-size: 14px;
+  font-family: var(--font-main);
+  color: white;
+  text-transform: lowercase;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.invitation__divider {
+  width: 60%;
+  max-width: 200px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 50px auto;
 }
 
 .invitation__text {
-  font-size: 14px;
+  font-size: 18px;
   font-family: var(--font-main);
-  line-height: 1.55;
+  line-height: 1.8;
   font-weight: 300;
-  color: var(--primary-color);
-  max-width: 440px;
+  color: white;
+  max-width: 600px;
   margin: 0 auto;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4),
+               0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .text-fade-in {
@@ -119,15 +181,37 @@
     height: 565px;
   }
 
+  .invitation__names {
+    font-size: 45px;
+  }
+
   .invitation__title {
     font-size: 35px;
     line-height: 1.3;
+    color: white;
+  }
+
+  .invitation__countdown-timer {
+    gap: 15px;
+  }
+
+  .invitation__countdown-item {
+    min-width: 60px;
+  }
+
+  .invitation__countdown-number {
+    font-size: 48px;
+  }
+
+  .invitation__countdown-label {
+    font-size: 12px;
   }
 
   .invitation__text {
-    font-size: 14px;
-    max-width: 261px;
+    font-size: 16px;
+    max-width: 90%;
   }
+
 }
 
 @media screen and (max-width: 639px) {
@@ -139,25 +223,44 @@
     width: 360px;
   }
 
+  .invitation__names {
+    font-size: 50px;
+  }
+
   .invitation__title {
     font-size: 33px;
     line-height: 1.1;
+    max-width: 90%;
+   
+  }
+
+  .invitation__countdown-timer {
+    gap: 20px;
+  }
+
+  .invitation__countdown-number {
+    font-size: 56px;
   }
 
   .invitation__text {
-    font-size: 15px;
-    max-width: 321px;
+    font-size: 16px;
+    max-width: 95%;
   }
+
 }
 
 @media screen and (min-width: 960px) and (max-width: 1199px) {
+  .invitation__names {
+    font-size: 65px;
+  }
+
   .invitation__title {
     font-size: 34px;
   }
 
   .invitation__text {
-    font-size: 16px;
-    max-width: 456px;
+    font-size: 17px;
   }
+
 }
 

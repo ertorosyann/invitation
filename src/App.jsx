@@ -1,11 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Hero from './components/Hero'
 import Invitation from './components/Invitation'
 import EventDetails from './components/EventDetails'
 import RSVPForm from './components/RSVPForm'
 import Gallery from './components/Gallery'
-import ContactInfo from './components/ContactInfo'
-import Footer from './components/Footer'
+// import Footer from './components/Footer'
 import BackgroundMusic from './components/BackgroundMusic'
 // import FloatingButton from './components/FloatingButton'
 import './styles/App.css'
@@ -13,6 +12,27 @@ import './styles/App.css'
 function App() {
   const [isOpening, setIsOpening] = useState(false)
   const [showContent, setShowContent] = useState(false)
+  const [currentBgIndex, setCurrentBgIndex] = useState(0)
+
+  // Background images from garush folder
+  const backgroundImages = [
+    '/garush/1.JPG',
+    '/garush/2.JPG',
+    '/garush/3.JPG'
+  ]
+
+  // Auto-rotate background images
+  useEffect(() => {
+    if (!showContent) return
+
+    const interval = setInterval(() => {
+      setCurrentBgIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      )
+    }, 5000) // Change every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [showContent, backgroundImages.length])
 
   const handleOpen = () => {
     setIsOpening(true)
@@ -24,19 +44,28 @@ function App() {
 
   return (
     <div className="app">
-      <BackgroundMusic />
+      <BackgroundMusic shouldAutoPlay={isOpening} />
       
       <Hero onOpen={handleOpen} isOpening={isOpening} showContent={showContent} />
       
       {showContent && (
         <main className="main-content main-content--fade-in">
-          <Invitation />
-          <EventDetails />
-          <RSVPForm />
-          <Gallery />
-          <ContactInfo />
-          <Footer />
-          {/* <FloatingButton /> */}
+          {/* Background slideshow */}
+          <div className="main-content__background">
+            {backgroundImages.map((img, index) => (
+              <div
+                key={img}
+                className={`main-content__bg-image ${index === currentBgIndex ? 'active' : ''}`}
+                style={{ backgroundImage: `url(${img})` }}
+              />
+            ))}
+          </div>
+          <div className="main-content__wrapper ">
+             <Invitation />
+             <EventDetails />
+             <RSVPForm />
+             <Gallery />
+          </div>
         </main>
       )}
     </div>

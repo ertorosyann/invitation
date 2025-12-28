@@ -1,4 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+/* ===== LOCAL FONTS ===== */
+
+/* Armenian Font - Heghnar / ArTarumianHeghnar (from local fonts folder) */
+@font-face {
+  font-family: 'Heghnar';
+  src: url('/fonts/ArTarumianHeghnar/HEGHNAR.eot?') format('eot'),
+       url('/fonts/ArTarumianHeghnar/HEGHNAR.woff') format('woff'),
+       url('/fonts/ArTarumianHeghnar/HEGHNAR.ttf') format('truetype'),
+       url('/fonts/ArTarumianHeghnar/HEGHNAR.svg#ArTarumianHeghnar') format('svg');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Alternative name - ArTarumianHeghnar */
+@font-face {
+  font-family: 'ArTarumianHeghnar';
+  src: url('/fonts/ArTarumianHeghnar/HEGHNAR.eot?') format('eot'),
+       url('/fonts/ArTarumianHeghnar/HEGHNAR.woff') format('woff'),
+       url('/fonts/ArTarumianHeghnar/HEGHNAR.ttf') format('truetype'),
+       url('/fonts/ArTarumianHeghnar/HEGHNAR.svg#ArTarumianHeghnar') format('svg');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Armenian Font - MontserratARM (from local fonts folder) */
+@font-face {
+  font-family: 'MontserratARM';
+  src: url('/fonts/fonter.am_montserrat-armenian/Montserratarm-Thin.otf') format('opentype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratARM';
+  src: url('/fonts/fonter.am_montserrat-armenian/Montserratarm-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratARM';
+  src: url('/fonts/fonter.am_montserrat-armenian/Montserratarm-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratARM';
+  src: url('/fonts/fonter.am_montserrat-armenian/Montserratarm-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratARM';
+  src: url('/fonts/fonter.am_montserrat-armenian/Montserratarm-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratARM';
+  src: url('/fonts/fonter.am_montserrat-armenian/Montserratarm-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratARM';
+  src: url('/fonts/fonter.am_montserrat-armenian/Montserratarm-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratARM';
+  src: url('/fonts/fonter.am_montserrat-armenian/Montserratarm-ExtraBold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MontserratARM';
+  src: url('/fonts/fonter.am_montserrat-armenian/Montserratarm-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== GLOBAL STYLES ===== */
 
 * {
   margin: 0;
@@ -12,8 +111,9 @@
   --accent-color: #e2e2d6;
   --text-color: #414653;
   --white: #ffffff;
-  --font-main: 'Raleway', 'MontserratARM', Arial, sans-serif;
+  --font-main: 'MontserratARM', Arial, sans-serif;
   --font-armenian: 'Heghnar', Arial, sans-serif;
+  --font-armenian-light: 'MontserratARM', Arial, sans-serif;
 }
 
 body {
@@ -28,32 +128,6 @@ body {
 
 html {
   scroll-behavior: smooth;
-}
-
-/* Armenian Fonts - Heghnar */
-@font-face {
-  font-family: 'Heghnar';
-  src: url('https://fonts.tildacdn.com/fonts/Heghnar-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Armenian Fonts - MontserratARM */
-@font-face {
-  font-family: 'MontserratARM';
-  src: url('https://fonts.tildacdn.com/fonts/MontserratARM-Light.woff2') format('woff2');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'MontserratARM';
-  src: url('https://fonts.tildacdn.com/fonts/MontserratARM-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
 }
 
 .container {
