@@ -6,14 +6,14 @@ const EventDetails = () => {
       <div className="container">
         {/* Date */}
         <div className="event-details__date">
-          <h2 className="event-details__date-text">17 Փետրվարի 2026</h2>
+            <h4 className=" event-details__date-text">Պսակադրություն</h4>
+          <h2 className=" event-details__name">17 Փետրվարի 2026</h2>
         </div>
 
         {/* Ceremony */}
         <div className="event-details__event">
-          <h3 className="event-details__time">14։30</h3>
-          <div className="event-details__info">
-            <h4 className="event-details__name">Պսակադրություն</h4>
+          <h3 className="event-details__time">15:00</h3>
+          <div className="event-details__info event-details__info--ceremony">
             <p className="event-details__venue">Սբ. Գայանե</p>
             <p className="event-details__address">
               Արմավիրի մարզ,<br />
@@ -34,10 +34,10 @@ const EventDetails = () => {
 
         {/* Reception */}
         <div className="event-details__event">
+            <h4 className=" event-details__venue">Հարսանյաց հանդիսություն</h4>
           <h3 className="event-details__time">17։30</h3>
-          <div className="event-details__info">
-            <h4 className="event-details__name">Հարսանյաց հանդիսություն</h4>
-            <p className="event-details__venue">Morena ռեստորան</p>
+          <div className="event-details__info event-details__info--reception">
+            <p className="event-details__venue">Մորենա ռեստորան</p>
             <p className="event-details__address">
               ք․ Մասիս, Մխիթար Հերացի 7/8
             </p>

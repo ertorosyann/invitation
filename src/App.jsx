@@ -61,10 +61,10 @@ function App() {
             ))}
           </div>
           <div className="main-content__wrapper ">
-             <Invitation />
-             <EventDetails />
-             <RSVPForm />
-             <Gallery />
+            <Invitation />
+            <EventDetails />
+            <RSVPForm />
+           <Gallery />
           </div>
         </main>
       )}

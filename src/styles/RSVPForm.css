@@ -12,8 +12,8 @@
 }
 
 .rsvp-form__title {
-  font-size: 18px;
-  font-family: var(--font-main);
+  font-size: 20px;
+  font-family: var(--font-armenian);
   font-weight: 200;
   color: var(--primary-color);
   text-align: center;
@@ -49,8 +49,8 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  font-size: 14px;
-  font-family: var(--font-main);
+  font-size: 20px;
+  font-family: var(--font-armenian);
   color: var(--primary-color);
 }
 
@@ -82,8 +82,8 @@
   padding: 15px 20px;
   border: 1px solid #9ba0af;
   border-radius: 4px;
-  font-size: 14px;
-  font-family: var(--font-main);
+  font-size: 20px;
+  font-family: var(--font-armenian);
   color: var(--primary-color);
   transition: border-color 0.3s ease;
 }
@@ -106,8 +106,8 @@
   border: 1px solid var(--primary-color);
   border-radius: 30px;
   color: var(--primary-color);
-  font-size: 14px;
-  font-family: var(--font-main);
+  font-size: 20px;
+  font-family: var(--font-armenian);
   font-weight: 300;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
@@ -124,7 +124,7 @@
   color: #d32f2f;
   font-size: 12px;
   margin-top: 5px;
-  font-family: var(--font-main);
+  font-family: var(--font-armenian);
 }
 
 .rsvp-form__success {
@@ -135,7 +135,7 @@
 
 .rsvp-form__success h2 {
   font-size: 35px;
-  font-family: var(--font-main);
+  font-family: var(--font-armenian);
   font-weight: 700;
   text-transform: uppercase;
   color: #000;
@@ -144,7 +144,7 @@
 
 .rsvp-form__success p {
   font-size: 20px;
-  font-family: var(--font-main);
+  font-family: var(--font-armenian);
   font-weight: 300;
   color: #000;
 }
@@ -169,7 +169,7 @@
 /* Responsive */
 @media screen and (max-width: 479px) {
   .rsvp-form__title {
-    font-size: 16px;
+    font-size: 20px;
     margin-bottom: 45px;
   }
 

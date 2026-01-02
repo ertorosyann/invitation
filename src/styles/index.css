@@ -1,25 +1,10 @@
 /* ===== LOCAL FONTS ===== */
 
-/* Armenian Font - Heghnar / ArTarumianHeghnar (from local fonts folder) */
+/* Armenian Font - Vrdznagir (Brush/Script style - from local fonts folder) */
 @font-face {
-  font-family: 'Heghnar';
-  src: url('/fonts/ArTarumianHeghnar/HEGHNAR.eot?') format('eot'),
-       url('/fonts/ArTarumianHeghnar/HEGHNAR.woff') format('woff'),
-       url('/fonts/ArTarumianHeghnar/HEGHNAR.ttf') format('truetype'),
-       url('/fonts/ArTarumianHeghnar/HEGHNAR.svg#ArTarumianHeghnar') format('svg');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Alternative name - ArTarumianHeghnar */
-@font-face {
-  font-family: 'ArTarumianHeghnar';
-  src: url('/fonts/ArTarumianHeghnar/HEGHNAR.eot?') format('eot'),
-       url('/fonts/ArTarumianHeghnar/HEGHNAR.woff') format('woff'),
-       url('/fonts/ArTarumianHeghnar/HEGHNAR.ttf') format('truetype'),
-       url('/fonts/ArTarumianHeghnar/HEGHNAR.svg#ArTarumianHeghnar') format('svg');
-  font-weight: 100 900;
+  font-family: 'Vrdznagir';
+  src: url('/fonts/Vrdznagir.otf') format('opentype');
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -112,7 +97,7 @@
   --text-color: #414653;
   --white: #ffffff;
   --font-main: 'MontserratARM', Arial, sans-serif;
-  --font-armenian: 'Heghnar', Arial, sans-serif;
+  --font-armenian: 'Vrdznagir', 'MontserratARM', Arial, sans-serif;
   --font-armenian-light: 'MontserratARM', Arial, sans-serif;
 }
 
@@ -121,7 +106,8 @@ body {
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--white);
+  /* background-color: #1a1a1a; */
+  background-color: white; 
   color: var(--text-color);
   overflow-x: hidden;
 }

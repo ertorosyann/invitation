@@ -1,11 +1,12 @@
 html, body {
   margin: 0;
+  background-color: transparent !important;
 }
 
 .main-content {
   position: relative;
   min-height: 100vh;
-  height: 400px;
+  /* height: 400px; */
   opacity: 0;
 }
 
@@ -59,8 +60,7 @@ html, body {
 .main-content__wrapper {
   position: relative;
   z-index: 10;
-  min-height: 100vh;
-  height:900px;
+  height:100vh;
   padding: 40px 20px;
   overflow-y: scroll;
 }

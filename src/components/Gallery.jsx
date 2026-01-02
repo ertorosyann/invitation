@@ -3,7 +3,7 @@ import '../styles/Gallery.css'
 const Gallery = () => {
   return (
     <section className="gallery">
-      <div className="gallery__container">
+      <div className="gallery__container"> 
         <img 
           src="/verj.svg" 
           alt="Decorative" 

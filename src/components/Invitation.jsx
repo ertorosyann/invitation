@@ -33,31 +33,21 @@ const Invitation = () => {
 
   return (
     <section className="invitation">
-      <div className="invitation__content container">
-        {/* <div className="invitation__icon bounce-animation">
-          <img 
-            src="https://static.tildacdn.one/tild3330-3664-4637-b664-616633616233/Stop.svg"
-            alt="Music play"
-            className="invitation__music-icon play-icon"
-          />
-          <img 
-            src="https://static.tildacdn.one/tild3131-6131-4462-b966-646435363265/Play.svg"
-            alt="Music stop"
-            className="invitation__music-icon stop-icon"
-          />
-        </div> */}
-        
-        <h2 className="invitation__title text-fade-in">
-          Հարսանյաց հրավեր
-        </h2>
+      <div className="invitation__content">
         
         <h1 className="invitation__names">
-          Գարուշ &  Անի
+          Գարուշ  և Անի
         </h1>
 
         {/* Countdown Timer */}
         <div className="invitation__countdown">
-          <p className="invitation__countdown-title">Հարսանիքին մնաց</p>
+          {/* <p className="invitation__countdown-title">Հարսանիքին մնաց</p> */}
+          <p className="invitation__text text-fade-in">
+              Հարգելի’ հարազատներ, բարեկամներ և ընկերներ
+              Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց արարողությանը
+              Հարսանիքին մնացել է
+            <br /><br /><br />
+          </p>
           <div className="invitation__countdown-timer">
             <div className="invitation__countdown-item">
               <span className="invitation__countdown-number">{timeLeft.days}</span>
@@ -76,19 +66,7 @@ const Invitation = () => {
               <span className="invitation__countdown-label">վայրկյան</span>
             </div>
           </div>
-        </div>
-
-
-      
-        <h2 className="invitation__title text-fade-in">
-          Բարեկամներ & ընկերներ
-        </h2>
-        
-        <p className="invitation__text text-fade-in">
-          Մեր կյանքում կարևոր իրադարձություն է սպասվում՝ մենք ընտանիք ենք կազմում և ցանկանում ենք Ձեզ հետ կիսել մեր կյանքի լուսավոր օրը։
-          <br /><br /><br /><br /><br /><br />
-          Սիրով հրավիրում ենք Ձեզ մեր հարսանիքին։
-        </p>
+        </div>     
       </div>
     </section>
   )

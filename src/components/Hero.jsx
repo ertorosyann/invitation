@@ -27,8 +27,8 @@ const Hero = ({ onOpen, isOpening, showContent }) => {
         <h1 className="hero__title">
           Հարսանյաց
         </h1>
-        <h2 className="hero__subtitle">
-          հրավեր
+        <h2 className="hero__title2">
+          հրավերք
         </h2>
         
         {/* Envelope container */}
@@ -57,7 +57,7 @@ const Hero = ({ onOpen, isOpening, showContent }) => {
           className="hero__open-text"
           onClick={handleOpen}
         >
-          ԲԱՑԵԼ
+          Բացել
         </p>
         
         {/* Arrow */}

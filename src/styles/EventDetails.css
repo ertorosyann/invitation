@@ -1,20 +1,20 @@
 .event-details {
-  padding: 60px 0;
+  /* padding: 60px 0; */
   background-color: transparent;
 }
 
 .event-details .container {
-  padding: 50px 40px;
+  /* padding: 50px 40px; */
   max-width: 900px;
 }
 
 .event-details__date {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
 }
 
 .event-details__date-text {
-  font-size: 41px;
+  font-size: 40px;
   font-family: var(--font-armenian);
   line-height: 1.55;
   font-weight: 400;
@@ -43,13 +43,56 @@
 
 .event-details__info {
   margin-bottom: 40px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 50px 40px;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Ceremony - Church background */
+.event-details__info--ceremony {
+  background-image: url('/church.jpg');
+}
+
+/* Reception - Morena restaurant background */
+.event-details__info--reception {
+  background-image: url('/morena.jpg');
+}
+
+/* Dark overlay for better text readability over church image */
+.event-details__info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+  backdrop-filter: blur(1px);
+}
+
+.event-details__info > * {
+  position: relative;
+  z-index: 1;
 }
 
 .event-details__name {
-  font-size: 18px;
-  font-family: var(--font-main);
+  font-size: 20px;
+  font-family: var(--font-armenian);
   font-weight: 200;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: white;
   margin-bottom: 15px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
@@ -66,8 +109,8 @@
 }
 
 .event-details__address {
-  font-size: 14px;
-  font-family: var(--font-main);
+  font-size: 18px;
+  font-family: var(--font-armenian);
   font-weight: 200;
   color: white;
   line-height: 1.6;
@@ -82,10 +125,9 @@
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 35px;
   color: white;
-  font-size: 13px;
-  font-family: var(--font-main);
+  font-size: 20px;
+  font-family: var(--font-armenian);
   font-weight: 300;
-  text-transform: uppercase;
   text-decoration: none;
   transition: all 0.3s ease;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
@@ -123,7 +165,7 @@
 /* Responsive */
 @media screen and (max-width: 479px) {
   .event-details__date-text {
-    font-size: 35px;
+    font-size: 40px;
   }
 
   .event-details__time {
@@ -133,21 +175,42 @@
   .event-details__event {
     margin-bottom: 60px;
   }
+
+  .event-details__info {
+    max-width: 100%;
+    padding: 35px 25px;
+    min-height: 200px;
+  }
 }
 
 @media screen and (max-width: 639px) {
   .event-details__date-text {
-    font-size: 33px;
+    font-size: 40px;
   }
 
   .event-details__time {
     font-size: 33px;
   }
+
+  .event-details__info {
+    max-width: 500px;
+    padding: 40px 30px;
+  }
 }
 
 @media screen and (min-width: 960px) {
   .event-details__date-text {
-    font-size: 39px;
+    font-size: 40px;
+  }
+
+  .event-details__info {
+    max-width: 550px;
+    padding: 55px 45px;
+    min-height: 260px;
+  }
+
+  .event-details__venue {
+    font-size: 34px;
   }
 }
 
