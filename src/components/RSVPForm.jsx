@@ -43,9 +43,12 @@ const RSVPForm = () => {
 
     try {
       // Send data to backend server
-      const API_URL = import.meta.env.VITE_API_URL 
-        ? `${import.meta.env.VITE_API_URL}/api/rsvp`
-        : 'http://localhost:3002/api/rsvp'
+      // Use .env variable if exists, otherwise fallback to localhost
+      const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3002'
+      const API_URL = `${baseURL}/api/rsvp`
+      
+      console.log('🔗 API URL:', API_URL) // Debug log
+      console.log('📝 VITE_API_URL:', import.meta.env.VITE_API_URL) // Shows what's in .env
       
       const response = await fetch(API_URL, {
         method: 'POST',
