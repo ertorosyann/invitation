@@ -5,7 +5,6 @@ const RSVPForm = () => {
   const [formData, setFormData] = useState({
     side: '',
     name: '',
-    attendance: 'Մենք կգանք',
     guestCount: ''
   })
   const [submitted, setSubmitted] = useState(false)
@@ -27,13 +26,13 @@ const RSVPForm = () => {
     const newErrors = {}
     if (!formData.side) newErrors.side = 'Խնդրում ենք ընտրել կողմը'
     if (!formData.name.trim()) newErrors.name = 'Խնդրում ենք լրացնել անունը'
-    if (formData.attendance === 'Մենք կգանք' && !formData.guestCount.trim()) {
+    if (!formData.guestCount.trim()) {
       newErrors.guestCount = 'Խնդրում ենք նշել հյուրերի թիվը'
     }
     return newErrors
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const newErrors = validate()
     
@@ -42,20 +41,44 @@ const RSVPForm = () => {
       return
     }
 
-    // Here you would typically send the data to a backend
-    console.log('Form submitted:', formData)
-    setSubmitted(true)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setSubmitted(false)
-      setFormData({
-        side: '',
-        name: '',
-        attendance: 'Մենք կգանք',
-        guestCount: ''
+    try {
+      // Send data to backend server
+      const API_URL = import.meta.env.VITE_API_URL 
+        ? `${import.meta.env.VITE_API_URL}/api/rsvp`
+        : 'http://localhost:3002/api/rsvp'
+      
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
       })
-    }, 3000)
+
+      const result = await response.json()
+
+      if (result.success) {
+        console.log('✅ RSVP saved to Excel!', result)
+        setSubmitted(true)
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setSubmitted(false)
+          setFormData({
+            side: '',
+            name: '',
+            guestCount: ''
+          })
+        }, 3000)
+      } else {
+        console.error('❌ Failed to save RSVP:', result.message)
+        setErrors({ submit: 'Սխալ է տեղի ունեցել. Խնդրում ենք փորձել նորից' })
+      }
+
+    } catch (error) {
+      console.error('❌ Network error:', error)
+      setErrors({ submit: 'Սերվերի հետ կապի խնդիր. Ստուգեք ինտերնետը' })
+    }
   }
 
   if (submitted) {
@@ -65,6 +88,19 @@ const RSVPForm = () => {
           <div className="rsvp-form__success">
             <h2>Շնորհակալություն</h2>
             <p>Ձեր պատասխանը հաջողությամբ ուղարկվել է</p>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  if (submitted) {
+    return (
+      <section className="rsvp-form">
+        <div className="container">
+          <div className="rsvp-form__success">
+            <h2>Շնորհակալություն</h2>
+            <p>Ձեր պատասխանը հաջողությամբ պահպանվել է Excel ֆայլում</p>
           </div>
         </div>
       </section>
@@ -123,46 +159,23 @@ const RSVPForm = () => {
             {errors.name && <span className="rsvp-form__error">{errors.name}</span>}
           </div>
 
-          {/* Attendance */}
+          {/* Guest Count */}
           <div className="rsvp-form__field">
-            <div className="rsvp-form__radio-group">
-              <label className="rsvp-form__radio">
-                <input
-                  type="radio"
-                  name="attendance"
-                  value="Մենք կգանք"
-                  checked={formData.attendance === 'Մենք կգանք'}
-                  onChange={handleChange}
-                />
-                <span className="rsvp-form__radio-indicator"></span>
-                <span>Մենք կգանք</span>
-              </label>
-              <label className="rsvp-form__radio">
-                <input
-                  type="radio"
-                  name="attendance"
-                  value="Չենք կարող գալ :("
-                  checked={formData.attendance === 'Չենք կարող գալ :('}
-                  onChange={handleChange}
-                />
-                <span className="rsvp-form__radio-indicator"></span>
-                <span>Չենք կարող գալ :(</span>
-              </label>
-            </div>
+            <input
+              type="number"
+              name="guestCount"
+              value={formData.guestCount}
+              onChange={handleChange}
+              placeholder="Հյուրերի թիվ"
+              min="1"
+              className="rsvp-form__input"
+            />
+            {errors.guestCount && <span className="rsvp-form__error">{errors.guestCount}</span>}
           </div>
 
-          {/* Guest Count - conditional */}
-          {formData.attendance === 'Մենք կգանք' && (
-            <div className="rsvp-form__field slide-down">
-              <input
-                type="text"
-                name="guestCount"
-                value={formData.guestCount}
-                onChange={handleChange}
-                placeholder="Հյուրերի թիվ"
-                className="rsvp-form__input"
-              />
-              {errors.guestCount && <span className="rsvp-form__error">{errors.guestCount}</span>}
+          {errors.submit && (
+            <div className="rsvp-form__error rsvp-form__error--submit">
+              {errors.submit}
             </div>
           )}
 
