@@ -19,8 +19,18 @@ const bot = new TelegramBot(TELEGRAM_BOT_TOKEN, { polling: true })
 let adminChatId = null
 
 // Middleware
-app.use(cors())
+app.use(cors({
+  origin: '*',  // Allow all origins
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type']
+}))
 app.use(express.json())
+
+// Request logging
+app.use((req, res, next) => {
+  console.log(`📨 ${req.method} ${req.url}`)
+  next()
+})
 
 // Excel file path
 const EXCEL_FILE = path.join(__dirname, 'guests.xlsx')
@@ -40,11 +50,14 @@ function initializeExcelFile() {
 
 // Add RSVP to Excel
 app.post('/api/rsvp', (req, res) => {
+  console.log('📥 Received RSVP data:', req.body)
+
   try {
-    const { side, name, attendance, guestCount } = req.body
+    const { side, name, guestCount } = req.body
 
     // Validate data
     if (!side || !name) {
+      console.log('❌ Validation failed - missing fields')
       return res.status(400).json({
         success: false,
         message: 'Missing required fields'
