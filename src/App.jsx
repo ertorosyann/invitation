@@ -14,12 +14,21 @@ function App() {
   const [showContent, setShowContent] = useState(false)
   const [currentBgIndex, setCurrentBgIndex] = useState(0)
 
-  // Background images from garush folder
+  // Background images from garush folder (optimized versions)
   const backgroundImages = [
-    '/garush/1.JPG',
-    '/garush/2.JPG',
-    '/garush/3.JPG'
+    '/garush/optimized-1.JPG',
+    '/garush/optimized-2.JPG',
+    '/garush/optimized-3.JPG'
   ]
+
+  // Preload background images immediately when page loads
+  useEffect(() => {
+    backgroundImages.forEach((imageSrc) => {
+      const img = new Image()
+      img.src = imageSrc
+    })
+    console.log('✅ Background images preloading...')
+  }, [])
 
   // Auto-rotate background images
   useEffect(() => {
