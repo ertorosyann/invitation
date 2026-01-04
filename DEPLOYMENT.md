@@ -9,13 +9,15 @@ npm run build
 
 ### **Step 2: Start everything**
 ```bash
-npm run prod:all
+npm start
 ```
 
 That's it! Your wedding website is now running! ✨
 
-- Frontend: http://localhost:3000
-- Backend API: http://localhost:3002
+**Everything on ONE port (3002):**
+- Website: http://localhost:3002
+- API: http://localhost:3002/api/rsvp
+- Users only connect to port 3002!
 
 ---
 

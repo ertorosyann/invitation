@@ -10,9 +10,7 @@
     "lint": "eslint .",
     "server": "node server/server.js",
     "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
-    "start": "node server/server.js",
-    "serve:frontend": "serve dist -p 3000",
-    "prod:all": "concurrently \"npm run serve:frontend\" \"npm run server\""
+    "start": "node server/server.js"
   },
   "dependencies": {
     "concurrently": "^8.2.2",

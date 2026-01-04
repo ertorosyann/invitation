@@ -11,6 +11,7 @@ const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT || 3002
+const HOST = '127.0.0.1'  // Listen only on localhost (internal only)
 
 // Telegram Bot Configuration
 const TELEGRAM_BOT_TOKEN = '8547608782:AAF6v4lnBTOaYS3lTohTlMzIzWpF6nmP30s'
@@ -31,6 +32,10 @@ app.use((req, res, next) => {
   console.log(`📨 ${req.method} ${req.url}`)
   next()
 })
+
+// Serve static files from dist folder
+const distPath = path.join(__dirname, '../dist')
+app.use(express.static(distPath))
 
 // Excel file path
 const EXCEL_FILE = path.join(__dirname, 'guests.xlsx')
@@ -223,13 +228,28 @@ function sendGuestsToTelegram() {
   }
 }
 
+// Serve index.html for all non-API routes (SPA support)
+app.get('*', (req, res) => {
+  const indexPath = path.join(distPath, 'index.html')
+  if (fs.existsSync(indexPath)) {
+    res.sendFile(indexPath)
+  } else {
+    res.status(404).send('Frontend not built. Run: npm run build')
+  }
+})
+
 // Initialize and start server
 initializeExcelFile()
 
-app.listen(PORT, () => {
-  console.log(`🎉 Wedding RSVP Backend API running on http://localhost:${PORT}`)
-  console.log(`📊 Excel file location: ${EXCEL_FILE}`)
-  console.log(`🤖 Telegram Bot active - Send /start to your bot to begin`)
-  console.log(`🌐 Frontend should run on http://localhost:3000 (npm run dev)`)
+app.listen(PORT, HOST, () => {
+  console.log(`\n🎉 Wedding Backend Server Running (INTERNAL ONLY)`)
+  console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`)
+  console.log(`🔧 Listening on: ${HOST}:${PORT}`)
+  console.log(`🔧 API: http://${HOST}:${PORT}/api/rsvp`)
+  console.log(`📊 Excel: ${EXCEL_FILE}`)
+  console.log(`🤖 Telegram Bot: Active`)
+  console.log(`🔒 Not accessible from outside (firewall closed)`)
+  console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`)
+  console.log(`ℹ️  Use Nginx reverse proxy to expose on port 80\n`)
 })
 
