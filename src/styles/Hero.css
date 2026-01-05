@@ -36,8 +36,8 @@
 
 .hero__title {
   display: flex;
-  padding-left: 80px;
-  justify-content: start;
+  /* padding-left: 80px; */
+  justify-content: center;
   color: var(--primary-color);
   font-size: 48px;
   font-family: var(--font-armenian);

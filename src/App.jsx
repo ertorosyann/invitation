@@ -13,21 +13,41 @@ function App() {
   const [isOpening, setIsOpening] = useState(false)
   const [showContent, setShowContent] = useState(false)
   const [currentBgIndex, setCurrentBgIndex] = useState(0)
+  const [imagesLoaded, setImagesLoaded] = useState(false)
 
-  // Background images from garush folder (optimized versions)
+  // Background images - low quality thumbnails and high quality
   const backgroundImages = [
-    '/garush/optimized-1.JPG',
-    '/garush/optimized-2.JPG',
-    '/garush/optimized-3.JPG'
+    {
+      thumb: '/garush/thumb-1.JPG',
+      full: '/garush/optimized-1.JPG'
+    },
+    {
+      thumb: '/garush/thumb-2.JPG',
+      full: '/garush/optimized-2.JPG'
+    },
+    {
+      thumb: '/garush/thumb-3.JPG',
+      full: '/garush/optimized-3.JPG'
+    }
   ]
 
-  // Preload background images immediately when page loads
+  // Preload high-quality images in background
   useEffect(() => {
-    backgroundImages.forEach((imageSrc) => {
+    let loadedCount = 0
+    const totalImages = backgroundImages.length
+
+    backgroundImages.forEach((imageSet) => {
       const img = new Image()
-      img.src = imageSrc
+      img.src = imageSet.full
+      img.onload = () => {
+        loadedCount++
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true)
+          console.log('✅ All high-quality images loaded!')
+        }
+      }
     })
-    console.log('✅ Background images preloading...')
+    console.log('⏳ Loading high-quality images in background...')
   }, [])
 
   // Auto-rotate background images
@@ -59,21 +79,25 @@ function App() {
       
       {showContent && (
         <main className="main-content main-content--fade-in">
-          {/* Background slideshow */}
+          {/* Background slideshow - Progressive loading */}
           <div className="main-content__background">
-            {backgroundImages.map((img, index) => (
+            {backgroundImages.map((imageSet, index) => (
               <div
-                key={img}
+                key={index}
                 className={`main-content__bg-image ${index === currentBgIndex ? 'active' : ''}`}
-                style={{ backgroundImage: `url(${img})` }}
+                style={{ 
+                  backgroundImage: `url(${imagesLoaded ? imageSet.full : imageSet.thumb})`,
+                  filter: imagesLoaded ? 'none' : 'blur(20px)',
+                  transition: 'filter 0.5s ease-in-out'
+                }}
               />
             ))}
           </div>
           <div className="main-content__wrapper ">
-            <Invitation />
-            <EventDetails />
-            <RSVPForm />
-           <Gallery />
+          <Invitation />
+          <EventDetails />
+          <RSVPForm />
+          <Gallery />
           </div>
         </main>
       )}

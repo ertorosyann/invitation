@@ -43,8 +43,7 @@ const Invitation = () => {
         <div className="invitation__countdown">
           {/* <p className="invitation__countdown-title">Հարսանիքին մնաց</p> */}
           <p className="invitation__text text-fade-in">
-              Հարգելի’ հարազատներ, բարեկամներ և ընկերներ
-              Սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց արարողությանը
+              Հարգելի՛ հյուրեր, սիրով հրավիրում ենք Ձեզ ներկա գտնվելու մեր հարսանյաց արարողությանը:<br /><br />
               Հարսանիքին մնացել է
             <br /><br /><br />
           </p>

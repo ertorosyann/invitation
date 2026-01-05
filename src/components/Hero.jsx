@@ -25,11 +25,9 @@ const Hero = ({ onOpen, isOpening, showContent }) => {
       <div className="hero__content">
         {/* Title */}
         <h1 className="hero__title">
-          Հարսանյաց
+          Հրավիրատոմս
         </h1>
-        <h2 className="hero__title2">
-          հրավերք
-        </h2>
+        
         
         {/* Envelope container */}
         <div className="hero__envelope-container">
