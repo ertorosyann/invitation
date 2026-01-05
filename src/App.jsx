@@ -87,8 +87,7 @@ function App() {
                 className={`main-content__bg-image ${index === currentBgIndex ? 'active' : ''}`}
                 style={{ 
                   backgroundImage: `url(${imagesLoaded ? imageSet.full : imageSet.thumb})`,
-                  filter: imagesLoaded ? 'none' : 'blur(20px)',
-                  transition: 'filter 0.5s ease-in-out'
+                  filter: imagesLoaded ? 'none' : 'blur(20px)'
                 }}
               />
             ))}
